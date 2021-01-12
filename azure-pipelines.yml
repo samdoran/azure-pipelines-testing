@@ -19,6 +19,6 @@ steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
 
-  - script: sleep 60
+  - script: sleep 180
     displayName: Sleep
 

@@ -16,5 +16,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - script: echo Hello, world!
-    displayName: 'Run a one-line script'
+  - script: python3 -m pip install pytest pytest-cov
+    displayName: Install deps
+
+  - script: pytest
+    displayName: Run tests
+
+  - script: ./publish-codecov.sh
+    displayName: Upload coverage report

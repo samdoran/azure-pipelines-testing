@@ -16,7 +16,8 @@ for file in ./coverage*.xml; do
     name="${name%.xml}"  # remove '.xml' suffix
 
     ./codecov \
-        -f "${file}" \
-        -n "${name}" \
+        --file "${file}" \
+        --name "${name}" \
+        --slug "${BUILD_REPOSITORY_NAME}" \
         || echo "Failed to upload code coverage report to codecov.io: ${file}"
 done

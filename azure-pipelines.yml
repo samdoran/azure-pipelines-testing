@@ -16,6 +16,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+  - bash: env | sort
+    displayName: Show environment
+
   - script: python3 -m pip install pytest pytest-cov
     displayName: Install deps
 

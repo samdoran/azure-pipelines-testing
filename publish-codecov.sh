@@ -19,9 +19,5 @@ for file in ./coverage*.xml; do
         -f "${file}" \
         -n "${name}" \
         -X coveragepy \
-        -X gcov \
-        -X fix \
-        -X search \
-        -X xcode \
         || echo "Failed to upload code coverage report to codecov.io: ${file}"
 done

@@ -9,6 +9,6 @@ curl --silent --show-error https://ansible-ci-files.s3.amazonaws.com/codecov/lin
 chmod +x codecov
 
 ./codecov \
-    -f coverage.xml
+    -f coverage.xml \
     -n project \
     || echo "Failed to upload code coverage report to codecov.io: ${file}"

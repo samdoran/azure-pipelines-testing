@@ -3,4 +3,4 @@ def run():
 
 
 def greeting():
-    print("Hello there")
+    return "Hello there"

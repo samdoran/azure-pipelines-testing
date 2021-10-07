@@ -5,5 +5,5 @@ def test_run():
     assert prog.run()
 
 
-# def test_greeting():
-#     prog.greeting()
+def test_greeting():
+    assert prog.greeting() == "Hello there"

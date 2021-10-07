@@ -8,7 +8,20 @@ set -o pipefail -eu
 curl --silent --show-error https://ansible-ci-files.s3.amazonaws.com/codecov/linux/codecov > codecov
 chmod +x codecov
 
-./codecov \
-    -f coverage.xml \
-    -n project \
-    || echo "Failed to upload code coverage report to codecov.io: ${file}"
+
+for file in ./coverage*.xml; do
+    name="${file}"
+    name="${name##*/}"  # remove path
+    name="${name##coverage=}"  # remove 'coverage=' prefix if present
+    name="${name%.xml}"  # remove '.xml' suffix
+
+    ./codecov \
+        -f "${file}" \
+        -n "${name}" \
+        -X coveragepy \
+        -X gcov \
+        -X fix \
+        -X search \
+        -X xcode \
+        || echo "Failed to upload code coverage report to codecov.io: ${file}"
+done

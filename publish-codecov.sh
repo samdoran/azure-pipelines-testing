@@ -18,6 +18,5 @@ for file in ./coverage*.xml; do
     ./codecov \
         -f "${file}" \
         -n "${name}" \
-        -X coveragepy \
         || echo "Failed to upload code coverage report to codecov.io: ${file}"
 done
